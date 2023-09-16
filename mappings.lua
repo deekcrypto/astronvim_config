@@ -30,13 +30,19 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
-    ["<C-t>"] = { "<cmd>ToggleTerm direction=float<cr>" },
+    ["<leader>bn"] = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" 
+    },
+    ["<leader>bb"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous Buffer" 
+    },
+    ["<C-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Terminal" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
-    ["<C-t>"] = { "<cmd>ToggleTerm direction=float<cr>" },
+    ["<C-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Terminal"},
   },
 }
