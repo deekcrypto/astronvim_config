@@ -14,6 +14,12 @@ return {
 	 },
 	never_show = {},
       },
+    },
+    source_selector = {
+      winbar = false
+    },
+    window = {
+      position = "float"
     }
   }
 }
